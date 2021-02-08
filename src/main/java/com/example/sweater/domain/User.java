@@ -13,15 +13,10 @@ public class User {
     private String password;
     private boolean active;
 
-    //создание отдельной таблицы
-    //fetch - способ подгрузки параметров по запросу юзера
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
-    //данное поле будет храниться в отдельной таблице
-    //так-же прописано соединение с табл user через Id
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
-    //енам храним в виде строки
     @Enumerated(EnumType.STRING)
-    private Set<Role> role;
+    private Set<Role> roles;
 
     public Long getId() {
         return id;
@@ -55,11 +50,11 @@ public class User {
         this.active = active;
     }
 
-    public Set<Role> getRole() {
-        return role;
+    public Set<Role> getRoles() {
+        return roles;
     }
 
-    public void setRole(Set<Role> role) {
-        this.role = role;
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
