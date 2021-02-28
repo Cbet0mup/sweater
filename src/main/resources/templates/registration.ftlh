@@ -5,7 +5,7 @@
 
 Add new user
 
-    ${message!" "}
+    ${message?ifExists}
 
 <@l.login "/registration" />
 </@page>
