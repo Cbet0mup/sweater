@@ -3,9 +3,7 @@
 
 <@c.page>
 
-Add new user
-
-    ${message?ifExists}
-
-<@l.login "/registration" />
-</@page>
+<div class="m-1">Add new user</div>
+${message?ifExists}
+<@l.login "/registration" true />
+</@c.page>
